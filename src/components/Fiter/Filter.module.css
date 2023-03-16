@@ -1,0 +1,12 @@
+.filterContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.filter{
+    width: 100px
+}
+
+.label{
+    margin-bottom: 5px;
+}

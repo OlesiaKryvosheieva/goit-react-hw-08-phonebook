@@ -1,0 +1,25 @@
+.container{
+margin-left: 50px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border: 1px solid black;
+    padding: 15px;
+    
+}
+
+.input{
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+.label{
+    margin-bottom: 5px;
+}
+
+.btn{
+    width: 100px;
+}
