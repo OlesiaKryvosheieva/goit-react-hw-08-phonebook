@@ -1,19 +1,19 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Fiter/Filter';
-import contacts from './contacts.json';
+import defaultContacts from './contacts.json';
 import css from 'components/ContactForm/ContactForm.module.css';
 
-const arrOfcontacts = contacts;
-
 export function App() {
-  const [contacts, setContacts] = useState(arrOfcontacts);
+  const [contacts, _setContacts] = useState([]);
   const [filter, setFilter] = useState('');
-
-  const firstRender = useRef(true);
+  const setContacts = newContacts => {
+    _setContacts(newContacts);
+    localStorage.setItem('contacts', JSON.stringify(newContacts));
+  };
 
   useEffect(() => {
     const contacts = localStorage.getItem('contacts');
@@ -21,16 +21,10 @@ export function App() {
 
     if (parsedContacts) {
       setContacts(parsedContacts);
+    } else {
+      setContacts(defaultContacts);
     }
   }, []);
-
-  useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
 
   function addContact({ name, number }) {
     const newContact = {
