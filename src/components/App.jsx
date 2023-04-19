@@ -3,10 +3,10 @@ import { contactsSlice } from 'redux/contactsSlice';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Fiter/Filter';
-// import defaultContacts from './contacts.json';
 import css from 'components/ContactForm/ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterSlice } from 'redux/filterSlice';
+
 
 export function App() {
   const { contacts } = useSelector(state => state.contacts);
