@@ -6,7 +6,7 @@ import { ContactList } from './ContactList/ContactList';
 // import defaultContacts from './contacts.json';
 import css from 'components/ContactForm/ContactForm.module.css';
 import { useDispatch, useSelector} from 'react-redux';
-import { initialState } from 'redux/initialState';
+
 
 
 export function App() {
@@ -43,7 +43,7 @@ const dispatch = useDispatch();
     // }
   
 
-  const deleteContact = ({id}) => dispatch(deleteContact({id}))
+  const deleteContact = ({id}) => dispatch(contactsSlice.actions.deleteContact({id}))
 
   // function changeFilter(event) {
   //   setFilter(event.currentTarget.value);
@@ -67,7 +67,7 @@ const dispatch = useDispatch();
         onSubmit={addContact}
         contacts={contacts}
         // contacts={getFilterContact()}
-        // ondeleteContact={deleteContact}
+        ondeleteContact={deleteContact}
       />
     </div>
   );
