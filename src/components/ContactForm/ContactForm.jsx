@@ -7,7 +7,7 @@ export function ContactForm({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const state = { name, number };
+  const state = { name, phone: number };
 
   const idName = nanoid();
   const idNumber = nanoid();

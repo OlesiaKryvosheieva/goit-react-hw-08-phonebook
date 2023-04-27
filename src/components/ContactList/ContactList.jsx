@@ -8,7 +8,7 @@ export const ContactList = ({ contacts, ondeleteContact }) => {
       {contacts.map(contact => {
         return (
           <li key={contact.id} className={css.item}>
-            {contact.name}: {contact.number}
+            {contact.name}: {contact.phone}
             <button
               type="button"
               onClick={() => ondeleteContact(contact)}

@@ -6,41 +6,32 @@ import { Filter } from './Fiter/Filter';
 import css from 'components/ContactForm/ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterSlice } from 'redux/filterSlice';
-
+import { createContactThunk, deleteContactThunk, getContactsThunk } from 'redux/thunk';
+import { useEffect } from 'react';
 
 export function App() {
-  const { contacts } = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.contacts.items);
   const { filter } = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
-  // const setContacts = newContacts => {
-  //   _setContacts(newContacts);
-  //   localStorage.setItem('contacts', JSON.stringify(newContacts));
-  // };
+  useEffect(() => {
+    dispatch(getContactsThunk());
+  }, [dispatch]);
 
-  // useEffect(() => {
-  //   const contacts = localStorage.getItem('contacts');
-  //   const parsedContacts = JSON.parse(contacts);
-  //   if (parsedContacts) {
-  //     setContacts(parsedContacts);
-  //   } else {
-  //     setContacts(defaultContacts);
-  //   }
-  // }, []);
-
-  const addContact = ({ name, number }) => {
+  const addContact = ({ name, phone }) => {
     const value = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
     if (value) {
       alert(`${name} is already in contacts.`);
     } else {
-      dispatch(contactsSlice.actions.addContact({ name, number }));
+      const result = createContactThunk({ name, phone })
+      
+      dispatch(result);
     }
   };
 
-  const deleteContact = ({ id }) =>
-    dispatch(contactsSlice.actions.deleteContact({ id }));
+  const deleteContact = ({id} ) => dispatch(deleteContactThunk({id} ));
 
   const changeFilter = event =>
     dispatch(filterSlice.actions.changeFilter(event.currentTarget.value));
