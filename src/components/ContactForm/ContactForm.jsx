@@ -2,12 +2,13 @@ import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import css from './ContactForm.module.css';
+import Button from '@mui/material/Button';
 
 export function ContactForm({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const state = { name, phone: number };
+  const state = { name,  number };
 
   const idName = nanoid();
   const idNumber = nanoid();
@@ -62,10 +63,8 @@ export function ContactForm({ onSubmit }) {
         id={idNumber}
         className={css.input}
       />
-
-      <button type="submit" className={css.btn}>
-        Add contact
-      </button>
+<Button variant="contained" type="submit" >Add contact</Button>
+      
     </form>
   );
 }
