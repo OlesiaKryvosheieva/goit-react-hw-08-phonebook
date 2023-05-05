@@ -1,0 +1,9 @@
+.home,
+.contacts{
+    text-decoration: none;
+    color: rgb(37, 102, 241);
+}
+
+.home{
+    margin-right: 10px;
+}

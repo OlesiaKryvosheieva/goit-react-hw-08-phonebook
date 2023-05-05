@@ -1,0 +1,23 @@
+.form_container{
+    width: 300px;
+    padding: 30px 20px;
+    border: 1px solid gray;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  
+}
+
+.form_name{
+margin-top: 0px;
+font-size: 25px;
+text-align: center;
+color: gray;
+font-weight: 500;
+
+}

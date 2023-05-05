@@ -8,7 +8,7 @@ export const getContactsThunk = createAsyncThunk('contacts/fetchAll', () =>
 export const createContactThunk = createAsyncThunk(
   'contacts/addContact',
   async credentials => {
-    addContact(credentials);
+    return addContact(credentials);
   }
 );
 

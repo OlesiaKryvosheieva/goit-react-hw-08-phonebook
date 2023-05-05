@@ -29,9 +29,9 @@ export const contactsSlice = createSlice({
       .addCase(createContactThunk.fulfilled, (state, action) => {
         state.contacts.isLoading = false;
         state.contacts.items.push({
-          // id: action.payload.id,
-          name: action.meta.arg.name,
-          phone: action.meta.arg.phone,
+          id: action.payload.id,
+          name: action.payload.name,
+          number: action.payload.number,
         });
         state.contacts.error = '';
       })

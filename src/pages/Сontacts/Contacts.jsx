@@ -9,6 +9,7 @@ import {
 } from 'redux/contacts/contactsThunk';
 import { useEffect } from 'react';
 import css from 'components/ContactForm/ContactForm.module.css';
+
 import { Filter } from 'components/Fiter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
 import { ContactForm } from 'components/ContactForm/ContactForm';
@@ -51,7 +52,7 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
     <div className={css.container}>
       
       <ContactForm onSubmit={addContact} />
-      <h2>Contacts</h2>
+      <h2 className={css.header}> Your contacts</h2>
       <Filter value={filter} onChange={changeFilter}></Filter>
       <ContactList
         onSubmit={addContact}

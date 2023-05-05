@@ -1,0 +1,14 @@
+.user_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.user_email{
+    margin: 0;
+    color: gray;
+    font-weight: 500;
+}
+
